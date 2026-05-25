@@ -1,0 +1,14 @@
+Cognee is an open-source knowledge engine that converts documents into AI memory.
+It ingests data in any format and builds a dynamic knowledge graph from it.
+Cognee combines vector search, graph databases, and cognitive science approaches.
+Documents become both semantically searchable and relationally connected.
+
+The cognify pipeline extracts entities and relationships from text using an LLM.
+Entities are stored as nodes and relationships as edges in a graph database.
+Vector embeddings are generated for semantic similarity search.
+The result is a hybrid retrieval system combining graph traversal and vector search.
+
+Ollama enables running large language models entirely on local hardware.
+It supports models such as LLaMA, Mistral, Phi, and many others.
+The nomic-embed-text model provides high-quality text embeddings locally.
+Running everything locally ensures data privacy and zero API costs.
