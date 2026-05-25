@@ -47,6 +47,95 @@ The first run will:
 
 Subsequent runs skip model downloads (models are cached in a Docker volume).
 
+
+## Ollama Setup & Verification
+
+The stack uses Ollama as the local LLM and embedding server.
+
+### Verify Ollama Container
+
+Check whether the Ollama container is running:
+
+```bash
+docker ps
+```
+
+You should see:
+
+```bash
+cognee_ollama
+```
+
+### Verify Ollama API
+
+Test whether Ollama is reachable:
+
+```bash
+curl http://localhost:11434/api/tags
+```
+
+Expected output after models are downloaded:
+
+```json
+{
+  "models": [
+    {
+      "name": "mistral:latest"
+    },
+    {
+      "name": "nomic-embed-text:latest"
+    }
+  ]
+}
+```
+
+### Pull Models Manually (Optional)
+
+If automatic model download fails, pull them manually:
+
+```bash
+docker exec -it cognee_ollama ollama pull mistral:latest
+```
+
+```bash
+docker exec -it cognee_ollama ollama pull nomic-embed-text:latest
+```
+
+### Check Installed Models
+
+```bash
+docker exec -it cognee_ollama ollama list
+```
+
+### Common Issue – Port Already in Use
+
+If Docker fails with:
+
+```bash
+failed to bind host port 11434
+```
+
+Another Ollama instance is already running locally.
+
+Stop local Ollama:
+
+```bash
+sudo systemctl stop ollama
+```
+
+Or change the Docker port mapping:
+
+```yaml
+ports:
+  - "11435:11434"
+```
+
+Then access Ollama at:
+
+```bash
+http://localhost:11435
+```
+
 ## Changing the Models
 
 Edit `.env` to swap models:
