@@ -63,7 +63,7 @@ docker ps
 You should see:
 
 ```bash
-cognee_ollama
+comtext-graph-cognee
 ```
 
 ### Verify Ollama API
