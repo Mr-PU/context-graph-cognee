@@ -29,7 +29,7 @@ No API keys required – everything runs on your own hardware.
 
 ```bash
 # 1. Clone / copy this project
-cd 
+cd <Project Directory>
 
 # 2. (Optional) Add your own .txt files
 cp your_document.txt data/
